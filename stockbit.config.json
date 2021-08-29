@@ -1,7 +1,8 @@
 {
   "host": {
     "codename": "stockbit",
-    "address": ":8080"
+    "api_address": ":8080",
+    "grpc_address": ":8090"
   },
   "jwe": {
     "key": {

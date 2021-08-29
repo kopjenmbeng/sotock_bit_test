@@ -14,7 +14,7 @@ require (
 	github.com/go-ozzo/ozzo-validation/v4 v4.3.0
 	github.com/go-redis/redis/v8 v8.11.3
 	github.com/go-sql-driver/mysql v1.6.0
-	github.com/google/uuid v1.3.0
+	github.com/grpc-ecosystem/go-grpc-middleware v1.3.0
 	github.com/jmoiron/sqlx v1.3.4
 	github.com/joho/godotenv v1.3.0 // indirect
 	github.com/kopjenmbeng/goconf v0.0.0-20210823152732-8f91683aa97a
@@ -23,5 +23,6 @@ require (
 	github.com/sirupsen/logrus v1.8.1
 	github.com/spf13/cobra v1.2.1
 	golang.org/x/crypto v0.0.0-20210817164053-32db794688a5
+	google.golang.org/grpc v1.38.0
 	gopkg.in/square/go-jose.v2 v2.6.0
 )

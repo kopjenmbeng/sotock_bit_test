@@ -18,7 +18,7 @@ var apiCommand = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		defer logger.WithField("component", "apiCommand").Println("Run done")
 		api.NewServer(
-			goconf.GetString("host.address"),
+			goconf.GetString("host.api_address"),
 			logger,
 			telemetry,
 			Db.Read(),
