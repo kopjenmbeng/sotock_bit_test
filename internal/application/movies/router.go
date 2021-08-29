@@ -16,7 +16,7 @@ func Routes() *chi.Mux {
 	r.Group(func(r chi.Router) {
 		r.Use(InjectUseCaseContext)
 		r.Get("/search", SearchHandler)
-		r.Post("/detail", GetDetailHandler)
+		r.Post("/detail/{id}", GetDetailHandler)
 	})
 	return r
 }
