@@ -4,17 +4,26 @@
 # task number 2
 - this task is create microservice from http://www.omdbapi.com/
 
-    # install proto gen lib
-    - go get -u github.com/golang/protobuf/protoc-gen-go
-    - go get -u google.golang.org/grpc/cmd/protoc-gen-go-grpc
+    # Technology Stack
+-   GO
+-   mysql
+-   Consul for store configuration (Optional)
+-   Postman for API Documentation
 
-    # generate proto with plugin
-    - protoc --go_out=plugins=grpc:.  internal/proto/movies.proto 
-
-    # generate proto not plugin 
-    - - protoc --go_out=:. --go_opt paths=source_relative  --go-grpc_out=:. --go-grpc_opt paths=source_relative  internal/proto/*.proto 
+    # Before To RUN
 
 
+    -   makesure .env file is exist and the configuration is like this.
+        # predefined goconf env vars
+        - GOCONF_ENV_PREFIX=evermos
+        - #GOCONF_CONSUL=localhost:8500 (please remark using # if you don't have consul so it will read ![this json config](../master/stockbit.config.json))
+        - GOCONF_TYPE=json
+        - GOCONF_FILENAME=stockbit.config
+
+        # Newrelic
+        - #PROPERTY_NEWRELIC_KEY=
+
+    After you full fill the requeirment above this is rule for run application locally.
     # run grpc server
     - go run main.go grpc
     - the service wil run at port 8080
@@ -25,6 +34,10 @@
 
     # run unit test
     - go test -v .\test\
+    -   for Api documentation please import ![api doc](../master/document/stockbit.postman_collection.json))
+    
+
+    
 
 # task number 3
 - this task is refactore code from funtion findFirstStringInBracket please execute command go run .\logic_task\findstring\ or you can find at logic_task/findstring for find the code
