@@ -15,7 +15,7 @@
 
     -   makesure .env file is exist and the configuration is like this.
         # predefined goconf env vars
-        - GOCONF_ENV_PREFIX=evermos
+        - GOCONF_ENV_PREFIX=stockbit
         - #GOCONF_CONSUL=localhost:8500 (please remark using # if you don't have consul so it will read ![this json config](../master/stockbit.config.json))
         - GOCONF_TYPE=json
         - GOCONF_FILENAME=stockbit.config
