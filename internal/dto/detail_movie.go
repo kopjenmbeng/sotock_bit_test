@@ -15,7 +15,7 @@ type DetailMovie struct {
 	Country    string
 	Awards     string
 	Poster     string
-	Ratings    Ratings
+	Ratings    []Ratings
 	Metascore  string
 	ImdbRating string `json:"imdbRating"`
 	ImdbVotes  string `json:"imdbVotes"`

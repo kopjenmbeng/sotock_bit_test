@@ -23,7 +23,7 @@ func GetDetailHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	useCase := UseCaseFromContext(rc)
-	data, code, err := useCase.GetDetail(rc, http.StateIdle.String())
+	data, code, err := useCase.GetDetail(rc, Id)
 	if err != nil {
 		middleware.GetLogEntry(r).Error(xerrs.Details(err, respond.ErrMaxStack))
 		respond.Nay(w, r, code, err)
