@@ -6,6 +6,7 @@ import (
 	grpc_middleware "github.com/grpc-ecosystem/go-grpc-middleware"
 	grpc_logrus "github.com/grpc-ecosystem/go-grpc-middleware/logging/logrus"
 	grpc_ctxtags "github.com/grpc-ecosystem/go-grpc-middleware/tags"
+	"github.com/jmoiron/sqlx"
 	"github.com/sirupsen/logrus"
 	log "github.com/sirupsen/logrus"
 	"google.golang.org/grpc"
@@ -21,18 +22,21 @@ type Server struct {
 	log     *log.Logger
 	address string
 	srv     *grpc.Server
+	readDb  *sqlx.DB
+	writeDb *sqlx.DB
 }
 
-func NewServer(log *log.Logger, address string) *Server {
+func NewServer(log *log.Logger, address string, dbr *sqlx.DB, dbw *sqlx.DB) *Server {
 	// newrelic.newcon
 	s := &Server{
 		log:     log,
 		address: address,
+		readDb: dbr,
+		writeDb: dbw,
 	}
 
 	return s
 }
-
 
 func (s *Server) Serve() {
 	lis, err := net.Listen("tcp", s.address)
@@ -67,7 +71,7 @@ func (s *Server) Serve() {
 		),
 	)
 
-	s.Register()
+	s.Register(s.readDb,s.writeDb)
 	s.log.Printf("start grpc server at port : %s", s.address)
 	err = s.srv.Serve(lis)
 	if err != nil {

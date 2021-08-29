@@ -1,4 +1,4 @@
-# sotock_bit_test
+# stock bit test
 # task number 1
 - this task is simple query ![Please click for view the result](../master/script/simple_database_query.sql)
 # task number 2

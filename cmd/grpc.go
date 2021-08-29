@@ -17,7 +17,7 @@ var grpcCommand = &cobra.Command{
 	},
 	Run: func(cmd *cobra.Command, args []string) {
 		defer logger.WithField("component", "apiCommand").Println("Run done")
-		grpc.NewServer(logger,goconf.GetString("host.grpc_address")).Serve()
+		grpc.NewServer(logger,goconf.GetString("host.grpc_address"),Db.Read(),Db.Write()).Serve()
 		// grpc.NewServer(
 		// 	goconf.GetString("host.grpc_address"),
 		// 	logger,
