@@ -34,7 +34,7 @@
 
     # run unit test
     - go test -v .\test\
-    -   for Api documentation please import ![api doc](../master/document/stockbit.postman_collection.json))
+for Api documentation please import ![api doc](../master/document/stockbit.postman_collection.json))
     
 
     
