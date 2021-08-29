@@ -1,0 +1,265 @@
+{
+	"info": {
+		"_postman_id": "9ff883ac-ab28-49d6-98c7-4a7f2e664ade",
+		"name": "kanggo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "get_token",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/v1/authentication/get_token?email=slamet.supriyadi88@gmail.com&password=slamet@12345",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"authentication",
+								"get_token"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "slamet.supriyadi88@gmail.com"
+								},
+								{
+									"key": "password",
+									"value": "slamet@12345"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"slamet.supriyadi88@gmail.com\",\r\n    \"full_name\":\"Slamet Supriyadi\",\r\n    \"password\":\"slamet@12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/v1/authentication/register",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"authentication",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"sepatu\",\r\n    \"qty\":20,\r\n    \"price\":150000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/v1/products",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"973b8055-d95a-4d79-a78a-239640350016\",\r\n    \"name\":\"cangkul\",\r\n    \"qty\":20,\r\n    \"price\":250000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/v1/products",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/v1/products/973b8055-d95a-4d79-a78a-239640350016",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"products",
+								"973b8055-d95a-4d79-a78a-239640350016"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/v1/products",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"products"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "order",
+			"item": [
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"product_id\":\"48d2bb32-1927-46d6-8331-1a78e8340196\",\r\n    \"qty\":20\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/v1/order/add",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"order",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "pay",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"order_id\":\"4c13f34a-7aca-4c97-ad3e-e46b71f4a79a\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/v1/order/pay",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"order",
+								"pay"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "my_order",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/v1/order/my_order",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"v1",
+								"order",
+								"my_order"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
