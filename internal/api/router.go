@@ -13,6 +13,6 @@ func routes(r *chi.Mux) {
 		// r.Mount("/authentication", authentication.Routes())
 		// r.Mount("/products", products.Routes())
 		// r.Mount("/order", order.Routes())
-		r.Mount("/movies",movies.Routes())
+		r.Mount("/movie",movies.Routes())
 	})
 }

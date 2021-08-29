@@ -52,7 +52,7 @@ func (repo *MoviesRepository) Search(ctx context.Context, search string, page in
 	return
 }
 func (repo *MoviesRepository) GetDetail(ctx context.Context, id string) (result *dto.DetailMovie, status int, err error) {
-	uri := fmt.Sprintf("%s?apikey=%s&s=%s&page=%d", goconf.GetString("omdb.uri"), goconf.GetString("omdb.api_key"), id)
+	uri := fmt.Sprintf("%s?apikey=%s&i=%s", goconf.GetString("omdb.uri"), goconf.GetString("omdb.api_key"), id)
 	tr := &http.Transport{
 		MaxIdleConns:       10,
 		IdleConnTimeout:    30 * time.Second,
