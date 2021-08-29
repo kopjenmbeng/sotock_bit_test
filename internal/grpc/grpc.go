@@ -33,9 +33,7 @@ func NewServer(log *log.Logger, address string) *Server {
 	return s
 }
 
-func (s *Server) Register() {
 
-}
 func (s *Server) Serve() {
 	lis, err := net.Listen("tcp", s.address)
 	if err != nil {
