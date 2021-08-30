@@ -27,11 +27,11 @@
     After you full fill the requeirment above this is rule for run application locally.
     # run grpc server
     - go run main.go grpc
-    - the service wil run at port 8080
+    - the service wil run at port 8090
 
     # run api server
     - go run main.go api
-    - the grpc server wil run at port 8090
+    - the grpc server wil run at port 8080
 
     # run unit test
     - go test -v .\test\
