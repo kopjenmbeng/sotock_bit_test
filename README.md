@@ -12,7 +12,7 @@
 
     # Before To RUN
 
-
+    -   please restore this database log ![klik untuk download](../master/script/stockbit_log_db.sql)
     -   makesure .env file is exist and the configuration is like this.
         # predefined goconf env vars
         - GOCONF_ENV_PREFIX=stockbit
