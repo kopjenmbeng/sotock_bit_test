@@ -1,5 +1,7 @@
 # task number 1
-- this task is simple query ![Please click for view the result](../master/script/simple_database_query.sql)
+- please execute this MySql script for create table user ![Please click for view the result](../master/script/create_table_user.sql)
+- please execute this MySql script for insert data table user ![Please click for view the result](../master/script/insert_user_data.sql)
+- please execute this query for get result ![Please click for view the result](../master/script/simple_database_query.sql)
 # task number 2
 - this task is create microservice from http://www.omdbapi.com/
 
