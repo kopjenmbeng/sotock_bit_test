@@ -73,6 +73,7 @@ func (s *Server) Serve() {
 
 	s.Register(s.readDb,s.writeDb)
 	s.log.Printf("start grpc server at port : %s", s.address)
+	// serve grpc server connection
 	err = s.srv.Serve(lis)
 	if err != nil {
 		s.log.Fatalln("failed to serve grpc", err)

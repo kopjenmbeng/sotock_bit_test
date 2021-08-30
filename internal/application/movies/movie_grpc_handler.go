@@ -18,6 +18,7 @@ type MoviesGrpcHandler struct {
 
 func NewMoviesGrpcHandler(log *log.Logger, srv *grpc.Server, dbr sqlx.QueryerContext, dbw *sqlx.DB) MoviesGrpcHandler {
 	server := MoviesGrpcHandler{srv: srv, repository: NewMovieRepository(dbr, dbw)}
+	// register rpc service
 	proto.RegisterMoviesServer(server.srv, &server)
 	log.Printf("register rpc movies is ready !")
 	return server

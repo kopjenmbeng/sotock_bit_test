@@ -6,5 +6,6 @@ import (
 )
 
 func (s *Server) Register(dbr sqlx.QueryerContext, dbw *sqlx.DB) {
+	// register all rpc service
 	movies.NewMoviesGrpcHandler(s.log, s.srv,dbr,dbw)
 }

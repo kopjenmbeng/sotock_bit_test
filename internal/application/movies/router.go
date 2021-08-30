@@ -22,6 +22,7 @@ func Routes() *chi.Mux {
 	return r
 }
 
+// declare dependency injection
 func InjectUseCaseContext(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		dbr := db_context.GetDbRead(r)

@@ -47,6 +47,8 @@ func (repo *MoviesRepository) Search(ctx context.Context, search string, page in
 	}
 	defer resp.Body.Close()
 	body, err := ioutil.ReadAll(resp.Body)
+
+	// insert log with go routine
 	go repo.SaveLog(uuid.New().String(),"search",fmt.Sprintf("search=%s,page=%d",search,page),string(body))
 	err = json.Unmarshal(body, &result)
 	if err != nil {
@@ -87,6 +89,7 @@ func (repo *MoviesRepository) GetDetail(ctx context.Context, id string) (result 
 	}
 	defer resp.Body.Close()
 	body, err := ioutil.ReadAll(resp.Body)
+	// insert log with go routine
 	go repo.SaveLog(uuid.New().String(),"search",fmt.Sprintf("id=%s",id),string(body))
 	err = json.Unmarshal(body, &result)
 	if err != nil {
