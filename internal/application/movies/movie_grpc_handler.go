@@ -32,7 +32,7 @@ func (movie *MoviesGrpcHandler) Search(ctx context.Context, in *proto.SearchRequ
 	for _, i := range data.Search {
 		list = append(list, &proto.Search{Title: i.Title, Year: i.Year, ImdbID: i.ImdbID, Type: i.Type, Poster: i.Poster})
 	}
-	result := proto.SearchResponseMessage{Search: list}
+	result := proto.SearchResponseMessage{Search: list,TotalResults: data.TotalResults,Response: data.Response}
 	return &result, nil
 }
 
