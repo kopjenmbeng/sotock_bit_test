@@ -29,6 +29,9 @@ func NewMovieRepository(dbr sqlx.QueryerContext, dbw *sqlx.DB) IMoviesRepository
 	return &MoviesRepository{dbr: dbr,dbw: dbw}
 }
 
+func (repo *MoviesRepository)A(){
+
+}
 func (repo *MoviesRepository) Search(ctx context.Context, search string, page int) (result *dto.Searching, status int, err error) {
 	uri := fmt.Sprintf("%s?apikey=%s&s=%s&page=%d", goconf.GetString("omdb.uri"), goconf.GetString("omdb.api_key"), search, page)
 	tr := &http.Transport{
@@ -37,6 +40,8 @@ func (repo *MoviesRepository) Search(ctx context.Context, search string, page in
 		DisableCompression: true,
 		TLSClientConfig:    &tls.Config{InsecureSkipVerify: true},
 	}
+
+	//  selec * from a where id=$1
 
 	client := &http.Client{Transport: tr}
 

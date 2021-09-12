@@ -31,7 +31,7 @@
     "api_key":"faf7e5bb"
   },
   "database": {
-    "read": "mbeng:mbeng@12345@tcp(127.0.0.1:3306)/stockbit_log_db",
-    "write": "mbeng:mbeng@12345@tcp(127.0.0.1:3306)/stockbit_log_db"
+    "read": "g95P1McOmC:KcukBehV5G@tcp(remotemysql.com:3306)/g95P1McOmC",
+    "write": "g95P1McOmC:KcukBehV5G@tcp(remotemysql.com:3306)/g95P1McOmC"
   }
 }
